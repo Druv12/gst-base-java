@@ -1,0 +1,178 @@
+import java.util.Scanner; 
+ 
+public class GstCalculator{ 
+    public static void products(){ 
+        System.out.println("Enter 'same' if similar product purchased in bulk quantity or else type 'no':");
+            Scanner sc = new Scanner(System.in);
+            String same = sc.nextLine();
+            
+            if (same.equalsIgnoreCase("same")) {
+                // Case when the same product is purchased in bulk
+                System.out.println("Enter the price of one product:");
+                int price = sc.nextInt();
+                System.out.println("Enter the total number of goods:");
+                int n = sc.nextInt();
+                int totalcost = price * n;
+                System.out.println("Your total cost of your product: " + totalcost);
+    
+                // Asking if the user wants to calculate GST
+                System.out.println("Do you want to calculate your GST? If yes, enter 1; if no, enter 0:");
+                int A = sc.nextInt();
+                if (A == 1) {
+                    System.out.println("Enter the GST percentage:");
+                    int gstamount = sc.nextInt();
+                    System.out.println("Please confirm again: enter 1 for yes or 0 for no:");
+                    int choose = sc.nextInt();
+                    if (choose == 1) {
+                        int gst = (totalcost * gstamount) / 100;
+                        System.out.println("Your GST amount on the product is: " + gst);
+                        System.out.println("Thank you for using the app");
+                    } else if (choose == 0) {
+                        System.out.println("You don't want to calculate the GST amount.");
+                    } else {
+                        System.out.println("Please enter the correct format.");
+                    }
+                }
+            } else if (same.equalsIgnoreCase("no")) {
+                // Case when different products are purchased
+                System.out.println("Enter the total number of different products purchased:");
+                int size = sc.nextInt();
+                int[] price = new int[size];
+    
+                // Taking input for each product's price
+                System.out.println("Now enter the price of each different product:");
+                for (int i = 0; i < size; i++) {  // Looping over the array indices
+                    price[i] = sc.nextInt();
+                }
+    
+                // Calculating total cost
+                int totalcost = 0;
+                for (int i = 0; i < size; i++) {
+                    totalcost += price[i];
+                }
+    
+                // Displaying total cost
+                System.out.println("The total price is: " + totalcost);
+    
+                // Asking if the user wants to calculate GST
+                System.out.println("Do you want to calculate your GST? If yes, enter 1; if no, enter 0:");
+                int A = sc.nextInt();
+                if (A == 1) {
+                    System.out.println("Enter the GST percentage:");
+                    int gstamount = sc.nextInt();
+                    System.out.println("Please confirm again: enter 1 for yes or 0 for no:");
+                    int choose = sc.nextInt();
+                    if (choose == 1) {
+                        int gst = (totalcost * gstamount) / 100;
+                        System.out.println("Your GST amount is: " + gst);
+                        System.out.println("Thank you for using the app");
+                    } else if (choose == 0) {
+                        System.out.println("You don't want to calculate the GST amount.");
+                    } else {
+                        System.out.println("Please enter the correct format.");
+                    }
+} 
+    else{
+        System.out.println("Thankyou for using the app");
+    }
+}
+} 
+public static int Forigen(){ 
+    Scanner sc=new Scanner(System.in); 
+    double INR =3.5; 
+    System.out.println("enter the amout in dollar taken"); 
+            int USD=sc.nextInt(); 
+            double Currency=USD/INR; 
+            if(Currency>=1){ 
+            System.out.println("Indian currency format of dollar is:"+Currency); 
+            System.out.println("You can proceed"); 
+            System.out.println("basic "); 
+            System.out.println("enter the type of item you have with you on which gst will be applied"); 
+            System.out.println("1. essential items"); 
+            System.out.println("2. basic necessities"); 
+            System.out.println("3. standard goods"); 
+            System.out.println("4. most consumer products"); 
+            System.out.println("5. luxury and sin goods"); 
+             int item=sc.nextInt(); 
+            switch (item) { 
+                case 1: 
+                    System.out.println("0% for essential items"); 
+                 
+                break; 
+                case 2: 
+                    System.out.println("5% for basic necessities"); 
+               break; 
+       
+               case 3: 
+                    System.out.println("12% for standard goods"); 
+                break; 
+                case 4: 
+                    System.out.println("18% for most consumer products"); 
+                  break; 
+                case 5: 
+                    System.out.println("28% for luxury and sin goods"); 
+                     break; 
+                default: 
+                    System.out.println("Not valid"); 
+            }    
+ 
+        } 
+        else{ 
+            System.out.println("currency  more than one"); 
+            return Forigen(); 
+        } 
+        return 0; 
+        } 
+        public static void india(){ 
+        Scanner sc=new Scanner(System.in); 
+        System.out.println("You can proceed"); 
+        System.out.println("basic "); 
+        System.out.println("enter the type of item you have with you on which gst will be applied"); 
+        System.out.println("1. essential items"); 
+        System.out.println("2. basic necessities"); 
+        System.out.println("3. standard goods"); 
+        System.out.println("4. most consumer products"); 
+        System.out.println("5. luxury and sin goods"); 
+        int item=sc.nextInt(); 
+        switch (item) { 
+            case 1:  
+                System.out.println("0% for essential items"); 
+             
+            break; 
+            case 2: 
+                System.out.println("5% for basic necessities"); 
+           break; 
+   
+           case 3: 
+            System.out.println("12% for standard goods"); 
+            break; 
+            case 4: 
+                System.out.println("18% for most consumer products"); 
+              break; 
+            case 5: 
+                System.out.println("28% for luxury and sin goods"); 
+                 break; 
+            default: 
+            System.out.println("Not valid"); 
+        } 
+} 
+    public static void main(String[] args) { 
+    System.out.println(" Type 'Forigen' for dollar or 'Rupees' for Indian currency"); 
+    Scanner sc=new Scanner(System.in); 
+    String n1=sc.next(); 
+        if(n1.equalsIgnoreCase("Forigen")){ 
+            Forigen(); 
+        } 
+        else if(n1.equalsIgnoreCase("Rupees")) { 
+            india(); 
+        } 
+        else{ 
+            System.out.println("please enter valid choice or correct the spelling check once and please closethe app and run again"); 
+            return; 
+        } 
+         
+        products(); 
+        sc.close(); 
+ 
+     } 
+    }
